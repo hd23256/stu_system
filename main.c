@@ -90,9 +90,7 @@ int RegisterTea()//教师注册  1为注册成功  0为注册失败
 			if(turn)
 			{
 				//把我输入的账号和密码存进"教师登陆信息的数据表"中
-				fseek(fp,0,2);//文件定位，将文件指针指向文件末尾
 				fprintf(fp,"%s %s\n",account,password);
-				fflush(fp);//fflush()会强迫将缓冲区内的数据写回指定的文件中。
 				printf("注册成功！\n");
 				fclose(fp);//关闭文件
 				return 1;
@@ -151,9 +149,7 @@ int RegisterStu()//学生注册  1为注册成功  0为注册失败 和教师注
 			if(turn)
 			{
 				//把我输入的账号和密码存进"学生登陆信息的数据表"中
-				fseek(fp,0,2);//文件定位，将文件指针指向文件末尾
 				fprintf(fp,"%s %s\n",account,password);
-				fflush(fp);//fflush()会强迫将缓冲区内的数据写回指定的文件中。
 				printf("注册成功！\n");
 				fclose(fp);//关闭文件
 				student_number=atoi(account);//记录这个学生的学号
@@ -322,7 +318,7 @@ int Get_a_student_information_and_printf(int stu_num)
 		return 0;
 	}
 }
-void store_stu_innfor(stu_infor* pHead)
+void store_stu_infor(stu_infor* pHead)
 {
 	//保存学生信息
 	FILE *fp;//用来打开学生信息文件
@@ -365,6 +361,7 @@ void read_stu_infor(stu_infor** ppHead,stu_infor** ppEnd)
 	char Class[8];//文件中的班级
 	char name[10];//文件中的姓名
 	char score[5];//文件中的分数
+	char c = ',';
 	if((fp=fopen("studata_csv_Address","r"))==NULL)
 	{
 		printf("学生信息文件未打开成功，登录失败！\n");
@@ -870,11 +867,11 @@ int main()
 					i=100;
 					system("pause");
 					system("cls");
-					store_stu_innfor(pHead);
+					store_stu_infor(pHead);
 					break;
 				case '0':
 					printf("----------0.退出系统----------\n");
-					store_stu_innfor(pHead);
+					store_stu_infor(pHead);
 					return 0;
 					break;
 				default:
