@@ -2,11 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-//#define admintea_csv_Address teadata.txt;//教师登陆信息的数据表
-//#define adminstu_csv_Address studata.txt;//学生登陆信息的数据表
+//admintea_csv_Address//教师登陆信息的数据表
+//adminstu_csv_Address//学生登陆信息的数据表
 #define Login_password "202005"			//最高权限注册密码,十位数以内
-
-//#define studata_csv_Address stu.txt;//学生信息的数据表
+//studata_csv_Address//学生信息的数据表
 typedef struct STUDENT
 {
 	char account[16];//学号
